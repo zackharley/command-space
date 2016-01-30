@@ -21,7 +21,21 @@
             <input ng-model="query" type="text" class="form-control" placeholder="Search for..."/>
           </div>
         </div>
-        <p>{{query}}</p>
+        <br>
+        <ul class="nav nav-tabs">
+          <li ng-click="setActiveTab('Manual')" ng-class="{'active': activeTab == 'Manual'}"><a href>Manual/API</a></li>
+          <li ng-click="setActiveTab('Forum')" ng-class="{'active': activeTab == 'Forum'}"><a href>User Forum</a></li>
+          <li ng-click="setActiveTab('Video')" ng-class="{'active': activeTab == 'Video'}"><a href>Tutorial Video</a></li>
+        </ul>
+        <div ng-if="activeTab == 'Manual'">
+          Manual
+        </div>
+        <div ng-if="activeTab == 'Forum'">
+          Forum
+        </div>
+        <div ng-if="activeTab == 'Video'">
+          Video
+        </div>
       </div>
     </div>
   </body>
