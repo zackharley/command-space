@@ -1,5 +1,6 @@
-<html>
-  <head>
+<html ng-app="skippTime">
+
+<head>
     <title>SkippTime</title>
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -11,35 +12,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
     <script src="js/skipptime.js"></script>
-  </head>
-  <body ng-app="skippTime">
-    <div ng-controller="mainController">
-      <div class="container-fluid">
-        <br>
-        <br>
-        <!-- search -->
-        <div class="row">
-          <div class="col-md-12">
-            <input id="search-bar" ng-model="query" type="text" class="form-control" placeholder="Search for..."/>
-          </div>
+</head>
+
+<body ng-controller="mainController">
+    <div>
+        <div class="container-fluid">
+            <br>
+            <br>
+            <!-- search -->
+            <div class="row">
+                <div class="col-md-12">
+                    <input id="search-bar" ng-model="query" type="text" class="form-control" placeholder="Search for..." />
+                </div>
+            </div>
+            <br>
+            <ul class="nav nav-tabs">
+                <li ng-click="setActiveTab('Manual')" ng-class="{'active': activeTab == 'Manual'}"><a href>Manual/API</a></li>
+                <li ng-click="setActiveTab('Forum')" ng-class="{'active': activeTab == 'Forum'}"><a href>User Forum</a></li>
+                <li ng-click="setActiveTab('Video')" ng-class="{'active': activeTab == 'Video'}"><a href>Tutorial Video</a></li>
+            </ul>
+            <div ng-if="activeTab == 'Manual'">
+                Manual
+            </div>
+            <div ng-if="activeTab == 'Forum'">
+                Forum
+            </div>
+            <div ng-if="activeTab == 'Video'">
+                Video
+            </div>
+            <div class="results"></div>
         </div>
-        <br>
-        <ul class="nav nav-tabs">
-          <li ng-click="setActiveTab('Manual')" ng-class="{'active': activeTab == 'Manual'}"><a href>Manual/API</a></li>
-          <li ng-click="setActiveTab('Forum')" ng-class="{'active': activeTab == 'Forum'}"><a href>User Forum</a></li>
-          <li ng-click="setActiveTab('Video')" ng-class="{'active': activeTab == 'Video'}"><a href>Tutorial Video</a></li>
-        </ul>
-        <div ng-if="activeTab == 'Manual'">
-          Manual
-        </div>
-        <div ng-if="activeTab == 'Forum'">
-          Forum
-        </div>
-        <div ng-if="activeTab == 'Video'">
-          Video
-        </div>
-        <div class="results"></div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
