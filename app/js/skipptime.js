@@ -41,7 +41,7 @@ $(document).keypress(function (e) {
         $.get(link, function (data) {
             console.log(data);
             for (var i in data.items) {
-                youtubeLinks[i] = '<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/' + data.items[i].id.videoId + '" frameborder="0"/>';
+                youtubeLinks[i] = '<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/' + data.items[i].id.videoId + '?autoplay=1" frameborder="0"/>';
                 $('.results').html(youtubeLinks[i]);
             }
         });
