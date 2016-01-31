@@ -1,27 +1,48 @@
 var app = angular.module('skippTime', []);
+var youtubeApiKey = 'AIzaSyCMI8_O4dN8Q28q-_X1LLThi4-B1QMjxoU';
+var clientID = '89157465201-1m8t3v3lketegd6v5ivnr7e70kgeju5i.apps.googleusercontent.com';
+var clientSecret = 'e19SlC66IOATuDzZmeguigwH';
 
-app.controller('mainController', function($scope){
-  $scope.activeTab = 'Video';
-  $scope.manualData = [
-    {
-      'Tags': ['Python', 'Raise', 'Exception'],
-      'Link': 'https://docs.python.org/2/tutorial/errors.html#raising-exceptions'
+//gapi.client.setApiKey(youtubeApiKey);
+
+app.controller('mainController', function ($scope) {
+    $scope.activeTab = 'Video';
+    $scope.manualData = [
+        {
+            'Tags': ['Python', 'Raise', 'Exception'],
+            'Link': 'https://docs.python.org/2/tutorial/errors.html#raising-exceptions'
     }
   ];
-  $scope.forumData = [
-    {
-      'Tags': ['Python', 'Raise', 'Exception'],
-      'Link': 'http://stackoverflow.com/questions/13052991/proper-way-to-raise-exception-in-python'
+    $scope.forumData = [
+        {
+            'Tags': ['Python', 'Raise', 'Exception'],
+            'Link': 'http://stackoverflow.com/questions/13052991/proper-way-to-raise-exception-in-python'
     }
   ];
-  $scope.videoData = [
-    {
-      'Tags': ['Python', 'Raise', 'Exception'],
-      'Link': 'https://www.youtube.com/watch?v=AXREU-nells'
+    $scope.videoData = [
+        {
+            'Tags': ['Python', 'Raise', 'Exception'],
+            'Link': 'https://www.youtube.com/watch?v=AXREU-nells'
     }
   ];
-  $scope.setActiveTab = function(tab){
-    $scope.activeTab = tab;
-  };
-  $
+    $scope.setActiveTab = function (tab) {
+        $scope.activeTab = tab;
+    };
+    $
 });
+
+
+$(document).ready(function() {
+    $.get(link, function(data) {
+        console.log(data);
+       $(".result").html(data);
+       alert("Load was performed");
+    });
+});
+
+var link = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=photoshop+merge+layers&relevanceLanguage=en&type=video&key=" + youtubeApiKey;
+
+// Search for a specified string.
+/*function search(link) {
+    
+};*/
