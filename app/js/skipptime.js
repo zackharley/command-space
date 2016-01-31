@@ -31,14 +31,19 @@ app.controller('mainController', function ($scope) {
     $
 });
 
-
-$(document).ready(function() {
-    $.get(link, function(data) {
+var youtubeLinks = [];
+$(document).ready(function () {
+    $.get(link, function (data) {
         console.log(data);
-       $(".result").html(data);
-       alert("Load was performed");
+        $(".result").html(data);
+        for (var i in data.items) {
+            youtubeLinks[i] = 'https://www.youtube.com/watch?v=' + data.items[i].id.videoId;
+        }
+        alert("Load was performed");
+        console.log(youtubeLinks);
     });
 });
+
 
 var link = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=photoshop+merge+layers&relevanceLanguage=en&type=video&key=" + youtubeApiKey;
 
