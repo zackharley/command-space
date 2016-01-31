@@ -1,2 +1,2 @@
-# Command-Space
+# Command Space
 Command your workflow
