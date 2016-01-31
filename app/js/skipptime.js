@@ -43,16 +43,28 @@ $(document).keypress(function (e) {
                 $('.results').html(youtubeLinks[i]);
             }
         });
+
+        /*var query = $('#search-bar').prop('value');
+        var link = 'http://api.stackexchange.com/2.2/search/advanced?order=desc&sort=relevance&q=' + parseQueries(query) + '&site=stackoverflow';
+        $.get(link, function (data) {
+            console.log(data);
+            $.ajax({
+                url: data.items[0].link,
+                dataType: 'text',
+                success: function (data) {
+                    var elements = $("<div>").html(data)[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+                    for (var i = 0; i < elements.length; i++) {
+                        var theText = elements[i].firstChild.nodeValue;
+                        $('.results').html(elements);
+                    }
+                }
+            });
+        });*/
     }
 });
 
-$(document).ready(function () {
-    window.resizeTo(500, 300);
-    var link = 'http://api.stackexchange.com/2.2/questions?pagesize=50&site=stackoverflow&tagged=excel;table&order=asc&sort=votes&page=1';
-    $.get(link, function (data) {
-        console.log(data);
-        for(var i in data) {
-            
-        }
-    });
-});
+function parseQueries(query) {
+    query = query.toString().trim().split(' ').join(';') + ';';
+    console.log(query)
+    return query;
+}
