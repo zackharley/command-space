@@ -1,11 +1,9 @@
 var app = angular.module('skippTime', []);
 var youtubeApiKey = 'AIzaSyCMI8_O4dN8Q28q-_X1LLThi4-B1QMjxoU';
-var clientID = '89157465201-1m8t3v3lketegd6v5ivnr7e70kgeju5i.apps.googleusercontent.com';
-var clientSecret = 'e19SlC66IOATuDzZmeguigwH';
+//var clientID = '89157465201-1m8t3v3lketegd6v5ivnr7e70kgeju5i.apps.googleusercontent.com';
+//var clientSecret = 'e19SlC66IOATuDzZmeguigwH';
 
 var answerClass = '.accepted-answer';
-
-//gapi.client.setApiKey(youtubeApiKey);
 
 app.controller('mainController', function ($scope) {
     $scope.activeTab = 'Video';
@@ -46,4 +44,11 @@ $(document).keypress(function (e) {
             }
         });
     }
+});
+
+$(document).ready(function () {
+    var link = 'http://api.stackexchange.com/2.2/questions?pagesize=50&site=stackoverflow&tagged=excel;table&order=desc&sort=creation&page=1';
+    $.get(link, function (data) {
+        console.log(data);
+    });
 });
