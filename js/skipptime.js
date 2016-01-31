@@ -69,6 +69,8 @@ function parseQueries(query) {
     return query;
 }
 
+$().click
+
 $(document).ready(function() {
     self.resizeTo(500, 500);
 });
