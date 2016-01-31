@@ -47,8 +47,12 @@ $(document).keypress(function (e) {
 });
 
 $(document).ready(function () {
-    var link = 'http://api.stackexchange.com/2.2/questions?pagesize=50&site=stackoverflow&tagged=excel;table&order=desc&sort=creation&page=1';
+    window.resizeTo(500, 300);
+    var link = 'http://api.stackexchange.com/2.2/questions?pagesize=50&site=stackoverflow&tagged=excel;table&order=asc&sort=votes&page=1';
     $.get(link, function (data) {
         console.log(data);
+        for(var i in data) {
+            
+        }
     });
 });
